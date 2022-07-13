@@ -1,0 +1,15 @@
+{
+  "network": "arbTest",
+  "nounsToken": {
+    "address": "0x00A0c8a7c08834F14E660843A30d832A522F4A5d",
+    "startBlock": 13302812
+  },
+  "nounsAuctionHouse": {
+    "address": "0xb20aBc0ACc85a22A75E1f2401469B45222E73A80",
+    "startBlock": 13302816
+  },
+  "nounsDAO": {
+    "address": "0x44Aa5BC4325e28D0e9307aAF0FBC93Da674D4f35",
+    "startBlock": 13302820
+  }
+}
