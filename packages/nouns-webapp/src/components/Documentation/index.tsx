@@ -13,8 +13,15 @@ const Documentation = () => {
       leavesPage={true}
     />
   );
-  const playgroundLink = (
-    <Link text={<Trans>Playground</Trans>} url="/playground" leavesPage={false} />
+  const nounsLink = (
+    <Link
+      text={<Trans>Nouns</Trans>}
+      url="https://nouns.wtf"
+      leavesPage={true}
+    />
+  );
+  const corralLink = (
+    <Link text={<Trans>Corral</Trans>} url="/corral" leavesPage={false} />
   );
   const publicDomainLink = (
     <Link
@@ -39,15 +46,15 @@ const Documentation = () => {
           </h1>
           <p className={classes.aboutText}>
             <Trans>
-              Nouns are an experimental attempt to improve the formation of on-chain avatar
+              Lucid Longhorns is an experimental attempt to improve the formation of digital
               communities. While projects such as {cryptopunksLink} have attempted to bootstrap
-              digital community and identity, Nouns attempt to bootstrap identity, community,
-              governance, and a treasury that can be used by the community.
+              digital community and identity, Lucid Longhorns attempt to bootstrap identity, community,
+              governance, and a treasury that can be used by the community. Lucid Longhorns is a fork of {nounsLink}.
             </Trans>
           </p>
           <p className={classes.aboutText} style={{ paddingBottom: '4rem' }}>
             <Trans>
-              Learn more below, or start creating Nouns off-chain using the {playgroundLink}.
+              Learn more below, or start creating Lucid Longhorns off-chain in the {corralLink}.
             </Trans>
           </p>
         </div>
@@ -59,40 +66,37 @@ const Documentation = () => {
             <Accordion.Body>
               <ul>
                 <li>
-                  <Trans>Nouns artwork is in the {publicDomainLink}.</Trans>
+                  <Trans>Lucid Longhorns artwork is in the {publicDomainLink}.</Trans>
                 </li>
                 <li>
-                  <Trans>One Noun is trustlessly auctioned every 24 hours, forever.</Trans>
-                </li>
-                <li>
-                  <Trans>100% of Noun auction proceeds are trustlessly sent to the treasury.</Trans>
+                  <Trans>One Lucid Longhorn is auctioned off at the Cattle Royale every 12 hours, forever.</Trans>
                 </li>
                 <li>
                   <Trans>Settlement of one auction kicks off the next.</Trans>
                 </li>
                 <li>
-                  <Trans>All Nouns are members of Nouns DAO.</Trans>
+                  <Trans>100% of auction proceeds are sent to the Texas Co-Op.</Trans>
                 </li>
                 <li>
-                  <Trans>Nouns DAO uses a fork of {compoundGovLink}.</Trans>
+                  <Trans>All Lucid Longhorns are members of the Texas Co-Op.</Trans>
                 </li>
                 <li>
-                  <Trans>One Noun is equal to one vote.</Trans>
+                  <Trans>One Lucid Longhorn is equal to one vote.</Trans>
                 </li>
                 <li>
-                  <Trans>The treasury is controlled exclusively by Nouns via governance.</Trans>
+                  <Trans>The Texas Co-Op is controlled exclusively by Lucid Longhorns via governance.</Trans>
                 </li>
                 <li>
-                  <Trans>Artwork is generative and stored directly on-chain (not IPFS).</Trans>
+                  <Trans>Artwork is generative and stored directly on-chain.</Trans>
                 </li>
                 <li>
                   <Trans>
-                    No explicit rules exist for attribute scarcity; all Nouns are equally rare.
+                    No explicit rules exist for attribute scarcity; all Lucid Longhorns are equally rare.
                   </Trans>
                 </li>
                 <li>
                   <Trans>
-                    Nounders receive rewards in the form of Nouns (10% of supply for first 5 years).
+                    Founders receive rewards in the form of Lucid Longhorns (10% of supply for first 4 years).
                   </Trans>
                 </li>
               </ul>
@@ -101,45 +105,45 @@ const Documentation = () => {
 
           <Accordion.Item eventKey="1" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>
-              <Trans>Daily Auctions</Trans>
+              <Trans>Cattle Royale</Trans>
             </Accordion.Header>
             <Accordion.Body>
               <p className={classes.aboutText}>
                 <Trans>
-                  The Nouns Auction Contract will act as a self-sufficient Noun generation and
-                  distribution mechanism, auctioning one Noun every 24 hours, forever. 100% of
-                  auction proceeds (ETH) are automatically deposited in the Nouns DAO treasury,
-                  where they are governed by Noun owners.
+                  The Cattle Royale will act as a self-sufficient Lucid Longhorn generation and
+                  distribution mechanism, auctioning one Lucid Longhorn every 12 hours, forever. 100% of
+                  auction proceeds (ETH) are automatically deposited in the Texas Co-Op,
+                  where they are governed by Lucid Longhorn owners.
                 </Trans>
               </p>
 
               <p className={classes.aboutText}>
                 <Trans>
                   Each time an auction is settled, the settlement transaction will also cause a new
-                  Noun to be minted and a new 24 hour auction to begin.{' '}
+                  Lucid Longhorn to be minted and a new 12 hour auction to begin.{' '}
                 </Trans>
               </p>
               <p>
                 <Trans>
                   While settlement is most heavily incentivized for the winning bidder, it can be
-                  triggered by anyone, allowing the system to trustlessly auction Nouns as long as
-                  Ethereum is operational and there are interested bidders.
+                  triggered by anyone, allowing the system to trustlessly auction Lucid Longhorns as long as
+                  Arbitrum is operational and there are interested bidders.
                 </Trans>
               </p>
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="2" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>
-              <Trans>Nouns DAO</Trans>
+              <Trans>Texas Co-Op</Trans>
             </Accordion.Header>
             <Accordion.Body>
               <Trans>
-                Nouns DAO utilizes a fork of {compoundGovLink} and is the main governing body of the
-                Nouns ecosystem. The Nouns DAO treasury receives 100% of ETH proceeds from daily
-                Noun auctions. Each Noun is an irrevocable member of Nouns DAO and entitled to one
-                vote in all governance matters. Noun votes are non-transferable (if you sell your
-                Noun the vote goes with it) but delegatable, which means you can assign your vote to
-                someone else as long as you own your Noun.
+                The Texas Co-Op utilizes a fork of {compoundGovLink} and is the main governing body of the
+                Lucid Longhorns ecosystem. The Texas Co-Op treasury receives 100% of ETH proceeds from daily
+                Lucid Longhorn auctions. Each Lucid Longhorn is an irrevocable member of the Texas Co-Op and entitled to one
+                vote in all governance matters. Lucid Longhorn votes are non-transferable (if you sell your
+                Lucid Longhorn the vote goes with it) but delegatable, which means you can assign your vote to
+                someone else as long as you own your Lucid Longhorn.
               </Trans>
             </Accordion.Body>
           </Accordion.Item>
@@ -150,17 +154,17 @@ const Documentation = () => {
             <Accordion.Body>
               <p>
                 <Trans>
-                  In addition to the precautions taken by Compound Governance, Nounders have given
+                  In addition to the precautions taken by Compound Governance, the founders have given
                   themselves a special veto right to ensure that no malicious proposals can be
-                  passed while the Noun supply is low. This veto right will only be used if an
+                  passed while the Lucid Longhorn supply is low. This veto right will only be used if an
                   obviously harmful governance proposal has been passed, and is intended as a last
                   resort.
                 </Trans>
               </p>
               <p>
                 <Trans>
-                  Nounders will proveably revoke this veto right when they deem it safe to do so.
-                  This decision will be based on a healthy Noun distribution and a community that is
+                  The founders will proveably revoke this veto right when they deem it safe to do so.
+                  This decision will be based on a healthy Lucid Longhorn distribution and a community that is
                   engaged in the governance process.
                 </Trans>
               </p>
@@ -168,14 +172,14 @@ const Documentation = () => {
           </Accordion.Item>
           <Accordion.Item eventKey="4" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>
-              <Trans>Noun Traits</Trans>
+              <Trans>Lucid Longhorn Traits</Trans>
             </Accordion.Header>
             <Accordion.Body>
               <p>
                 <Trans>
-                  Nouns are generated randomly based Ethereum block hashes. There are no 'if'
-                  statements or other rules governing Noun trait scarcity, which makes all Nouns
-                  equally rare. As of this writing, Nouns are made up of:
+                  Lucid Longhorns are generated randomly based Arbitrum block hashes. There are no 'if'
+                  statements or other rules governing Lucid Longhorn trait scarcity, which makes all
+                  Lucid Longhorns equally rare. As of this writing, Lucid Longhorns are made up of:
                 </Trans>
               </p>
               <ul>
@@ -186,10 +190,10 @@ const Documentation = () => {
                   <Trans>hides (2)</Trans>
                 </li>
                 <li>
-                  <Trans>horns (2) </Trans>
+                  <Trans>horns (2)</Trans>
                 </li>
                 <li>
-                  <Trans>heads (2) </Trans>
+                  <Trans>heads (2)</Trans>
                 </li>
                 <li>
                   <Trans>outfits (2) </Trans>
@@ -202,7 +206,7 @@ const Documentation = () => {
                 </li>
               </ul>
               <Trans>
-                You can experiment with off-chain Noun generation at the {playgroundLink}.
+                You can experiment with off-chain Lucid Longhorn generation at the {corralLink}.
               </Trans>
             </Accordion.Body>
           </Accordion.Item>
@@ -213,8 +217,8 @@ const Documentation = () => {
             <Accordion.Body>
               <p>
                 <Trans>
-                  Nouns are stored directly on Ethereum and do not utilize pointers to other
-                  networks such as IPFS. This is possible because Noun parts are compressed and
+                  Lucid Longhorns are stored directly on Arbitrum and do not utilize pointers to other
+                  networks such as IPFS. This is possible because Lucid Longhorn parts are compressed and
                   stored on-chain using a custom run-length encoding (RLE), which is a form of
                   lossless compression.
                 </Trans>
@@ -233,15 +237,15 @@ const Documentation = () => {
           </Accordion.Item>
           <Accordion.Item eventKey="6" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>
-              <Trans>Noun Seeder Contract</Trans>
+              <Trans>Lucid Longhorn Seeder Contract</Trans>
             </Accordion.Header>
             <Accordion.Body>
               <p>
                 <Trans>
-                  The Noun Seeder contract is used to determine Noun traits during the minting
+                  The Lucid Longhorn Seeder contract is used to determine Lucid Longhorn traits during the minting
                   process. The seeder contract can be replaced to allow for future trait generation
-                  algorithm upgrades. Additionally, it can be locked by the Nouns DAO to prevent any
-                  future updates. Currently, Noun traits are determined using pseudo-random number
+                  algorithm upgrades. Additionally, it can be locked by the Texas Co-Op to prevent any
+                  future updates. Currently, Lucid Longhorn traits are determined using pseudo-random number
                   generation:
                 </Trans>
               </p>
@@ -250,7 +254,7 @@ const Documentation = () => {
               <br />
               <p>
                 <Trans>
-                  Trait generation is not truly random. Traits can be predicted when minting a Noun
+                  Trait generation is not truly random. Traits can be predicted when minting a Lucid Longhorn
                   on the pending block.
                 </Trans>
               </p>
@@ -258,71 +262,39 @@ const Documentation = () => {
           </Accordion.Item>
           <Accordion.Item eventKey="7" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>
-              <Trans>Nounder's Reward</Trans>
+              <Trans>Founder's Reward</Trans>
             </Accordion.Header>
             <Accordion.Body>
               <p>
                 <Trans>
-                  'Nounders' are the group of ten builders that initiated Nouns. Here are the
-                  Nounders:
+                  The founders are the group of builders that initiated Lucid Longhorns. Here are the
+                  founders:
                 </Trans>
               </p>
               <ul>
                 <li>
-                  <Link
-                    text="@cryptoseneca"
-                    url="https://twitter.com/cryptoseneca"
-                    leavesPage={true}
-                  />
+                  Texas Blockchain
                 </li>
                 <li>
-                  <Link
-                    text="@gremplin"
-                    url="https://twitter.com/gremplin"
-                    leavesPage={true}
-                  />
+                  yoroqui (artist)
                 </li>
                 <li>
-                  <Link text="@punk4156" url="https://twitter.com/punk4156" leavesPage={true} />
-                </li>
-                <li>
-                  <Link text="@eboyarts" url="https://twitter.com/eBoyArts" leavesPage={true} />
-                </li>
-                <li>
-                  <Link text="@punk4464" url="https://twitter.com/punk4464" leavesPage={true} />
-                </li>
-                <li>solimander</li>
-                <li>
-                  <Link text="@dhof" url="https://twitter.com/dhof" leavesPage={true} />
-                </li>
-                <li>
-                  <Link text="@devcarrot" url="https://twitter.com/carrot_init" leavesPage={true} />
-                </li>
-                <li>
-                  <Link text="@TimpersHD" url="https://twitter.com/TimpersHD" leavesPage={true} />
-                </li>
-                <li>
-                  <Link
-                    text="@lastpunk9999"
-                    url="https://twitter.com/lastpunk9999"
-                    leavesPage={true}
-                  />
+                  HairyBarry (developer)
                 </li>
               </ul>
               <p>
                 <Trans>
-                  Because 100% of Noun auction proceeds are sent to Nouns DAO, Nounders have chosen
-                  to compensate themselves with Nouns. Every 10th Noun for the first 5 years of the
-                  project (Noun ids #0, #10, #20, #30 and so on) will be automatically sent to the
-                  Nounder's multisig to be vested and shared among the founding members of the
-                  project.
+                  Because 100% of Lucid Longhorn auction proceeds are sent to the Texas Co-Op, the founders have chosen
+                  to compensate themselves with Lucid Longhorns. Every 10th Lucid Longhorn for the first 4 years of the
+                  project (Lucid Longhorn ids #0, #10, #20, #30 and so on) will be automatically sent to one
+                  of the founders on an alternating basis.
                 </Trans>
               </p>
               <p>
                 <Trans>
-                  Nounder distributions don't interfere with the cadence of 24 hour auctions. Nouns
-                  are sent directly to the Nounder's Multisig, and auctions continue on schedule
-                  with the next available Noun ID.
+                  The founder distributions don't interfere with the cadence of 12 hour auctions. Lucid Longhorns
+                  are sent directly to the founders, and auctions continue on schedule
+                  with the next available Lucid Longhorn ID.
                 </Trans>
               </p>
             </Accordion.Body>
