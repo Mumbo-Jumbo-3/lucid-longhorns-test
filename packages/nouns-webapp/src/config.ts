@@ -17,7 +17,7 @@ interface AppConfig {
   enableHistory: boolean;
 }
 
-type SupportedChains = ChainId.Rinkeby | ChainId.Mainnet | ChainId.ArbTest | ChainId.Arbitrum | ChainId.Hardhat;
+type SupportedChains = ChainId.Rinkeby | ChainId.Mainnet | 421611 | 42161 | ChainId.Hardhat;
 
 interface CacheBucket {
   name: string;
@@ -68,7 +68,7 @@ const app: Record<SupportedChains, AppConfig> = {
     subgraphApiUri: 'https://api.thegraph.com/subgraphs/name/nounsdao/nouns-subgraph',
     enableHistory: process.env.REACT_APP_ENABLE_HISTORY === 'true',
   },
-  [ChainId.ArbTest]: {
+  [ChainId.ArbitrumRinkeby]: {
     jsonRpcUri: createNetworkHttpUrl('arbTest'),
     wsRpcUri: createNetworkWsUrl('arbTest'),
     subgraphApiUri: 'https://api.thegraph.com/subgraphs/name/lucid-longhorns/lucid-longhorns-subgraph-arbitrum-rinkeby',
@@ -95,7 +95,7 @@ const externalAddresses: Record<SupportedChains, ExternalContractAddresses> = {
   [ChainId.Mainnet]: {
     lidoToken: '0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84',
   },
-  [ChainId.ArbTest]: {
+  [ChainId.ArbitrumRinkeby]: {
     lidoToken: undefined,
   },
   [ChainId.Arbitrum]: {
