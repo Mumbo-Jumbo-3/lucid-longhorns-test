@@ -17,7 +17,7 @@ interface AppConfig {
   enableHistory: boolean;
 }
 
-type SupportedChains = ChainId.Rinkeby | ChainId.Mainnet | ChaindId.ArbTest | ChainId.Arbitrum | ChainId.Hardhat;
+type SupportedChains = ChainId.Rinkeby | ChainId.Mainnet | ChainId.ArbTest | ChainId.Arbitrum | ChainId.Hardhat;
 
 interface CacheBucket {
   name: string;
