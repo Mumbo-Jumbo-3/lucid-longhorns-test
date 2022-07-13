@@ -130,17 +130,6 @@ contract NounsToken is INounsToken, Ownable, ERC721Checkpointable {
     }
 
     /**
-     * @notice Override isApprovedForAll to whitelist user's OpenSea proxy accounts to enable gas-less listings.
-     */
-    function isApprovedForAll(address owner, address operator) public view override(IERC721, ERC721) returns (bool) {
-        // Whitelist OpenSea proxy contract for easy trading.
-        if (proxyRegistry.proxies(owner) == operator) {
-            return true;
-        }
-        return super.isApprovedForAll(owner, operator);
-    }
-
-    /**
      * @notice Mint a Noun to the minter, along with a possible nounders reward
      * Noun. Nounders reward Nouns are minted every 10 Nouns, starting at 0,
      * until 183 nounder Nouns have been minted (5 years w/ 24 hour auctions).

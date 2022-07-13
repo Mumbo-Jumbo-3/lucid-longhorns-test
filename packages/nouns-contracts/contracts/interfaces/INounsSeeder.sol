@@ -22,10 +22,12 @@ import { INounsDescriptor } from './INounsDescriptor.sol';
 interface INounsSeeder {
     struct Seed {
         uint48 background;
-        uint48 body;
-        uint48 accessory;
+        uint48 hide;
+        uint48 horns;
         uint48 head;
-        uint48 glasses;
+        uint48 outfit;
+        uint48 eyes;
+        uint48 snout;
     }
 
     function generateSeed(uint256 nounId, INounsDescriptor descriptor) external view returns (Seed memory);

@@ -53,70 +53,12 @@
   {
     "inputs": [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "accessories",
-    "outputs": [
-      {
-        "internalType": "bytes",
-        "name": "",
-        "type": "bytes"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "accessoryCount",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes",
-        "name": "_accessory",
-        "type": "bytes"
-      }
-    ],
-    "name": "addAccessory",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "string",
         "name": "_background",
         "type": "string"
       }
     ],
     "name": "addBackground",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes",
-        "name": "_body",
-        "type": "bytes"
-      }
-    ],
-    "name": "addBody",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -143,11 +85,11 @@
     "inputs": [
       {
         "internalType": "bytes",
-        "name": "_glasses",
+        "name": "_eyes",
         "type": "bytes"
       }
     ],
-    "name": "addGlasses",
+    "name": "addEyes",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -168,12 +110,25 @@
   {
     "inputs": [
       {
-        "internalType": "bytes[]",
-        "name": "_accessories",
-        "type": "bytes[]"
+        "internalType": "bytes",
+        "name": "_hide",
+        "type": "bytes"
       }
     ],
-    "name": "addManyAccessories",
+    "name": "addHide",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "_horns",
+        "type": "bytes"
+      }
+    ],
+    "name": "addHorns",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -187,19 +142,6 @@
       }
     ],
     "name": "addManyBackgrounds",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes[]",
-        "name": "_bodies",
-        "type": "bytes[]"
-      }
-    ],
-    "name": "addManyBodies",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -226,11 +168,11 @@
     "inputs": [
       {
         "internalType": "bytes[]",
-        "name": "_glasses",
+        "name": "_eyes",
         "type": "bytes[]"
       }
     ],
-    "name": "addManyGlasses",
+    "name": "addManyEyes",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -244,6 +186,84 @@
       }
     ],
     "name": "addManyHeads",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes[]",
+        "name": "_hides",
+        "type": "bytes[]"
+      }
+    ],
+    "name": "addManyHides",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes[]",
+        "name": "_horns",
+        "type": "bytes[]"
+      }
+    ],
+    "name": "addManyHorns",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes[]",
+        "name": "_outfits",
+        "type": "bytes[]"
+      }
+    ],
+    "name": "addManyOutfits",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes[]",
+        "name": "_snouts",
+        "type": "bytes[]"
+      }
+    ],
+    "name": "addManySnouts",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "_outfit",
+        "type": "bytes"
+      }
+    ],
+    "name": "addOutfit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "_snout",
+        "type": "bytes"
+      }
+    ],
+    "name": "addSnout",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -310,38 +330,6 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "bodies",
-    "outputs": [
-      {
-        "internalType": "bytes",
-        "name": "",
-        "type": "bytes"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "bodyCount",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
         "name": "tokenId",
         "type": "uint256"
       },
@@ -354,12 +342,12 @@
           },
           {
             "internalType": "uint48",
-            "name": "body",
+            "name": "hide",
             "type": "uint48"
           },
           {
             "internalType": "uint48",
-            "name": "accessory",
+            "name": "horns",
             "type": "uint48"
           },
           {
@@ -369,7 +357,17 @@
           },
           {
             "internalType": "uint48",
-            "name": "glasses",
+            "name": "outfit",
+            "type": "uint48"
+          },
+          {
+            "internalType": "uint48",
+            "name": "eyes",
+            "type": "uint48"
+          },
+          {
+            "internalType": "uint48",
+            "name": "snout",
             "type": "uint48"
           }
         ],
@@ -392,6 +390,38 @@
   {
     "inputs": [
       {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "eyes",
+    "outputs": [
+      {
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "eyesCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "components": [
           {
             "internalType": "uint48",
@@ -400,12 +430,12 @@
           },
           {
             "internalType": "uint48",
-            "name": "body",
+            "name": "hide",
             "type": "uint48"
           },
           {
             "internalType": "uint48",
-            "name": "accessory",
+            "name": "horns",
             "type": "uint48"
           },
           {
@@ -415,7 +445,17 @@
           },
           {
             "internalType": "uint48",
-            "name": "glasses",
+            "name": "outfit",
+            "type": "uint48"
+          },
+          {
+            "internalType": "uint48",
+            "name": "eyes",
+            "type": "uint48"
+          },
+          {
+            "internalType": "uint48",
+            "name": "snout",
             "type": "uint48"
           }
         ],
@@ -456,12 +496,12 @@
           },
           {
             "internalType": "uint48",
-            "name": "body",
+            "name": "hide",
             "type": "uint48"
           },
           {
             "internalType": "uint48",
-            "name": "accessory",
+            "name": "horns",
             "type": "uint48"
           },
           {
@@ -471,7 +511,17 @@
           },
           {
             "internalType": "uint48",
-            "name": "glasses",
+            "name": "outfit",
+            "type": "uint48"
+          },
+          {
+            "internalType": "uint48",
+            "name": "eyes",
+            "type": "uint48"
+          },
+          {
+            "internalType": "uint48",
+            "name": "snout",
             "type": "uint48"
           }
         ],
@@ -486,38 +536,6 @@
         "internalType": "string",
         "name": "",
         "type": "string"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "glasses",
-    "outputs": [
-      {
-        "internalType": "bytes",
-        "name": "",
-        "type": "bytes"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "glassesCount",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -557,6 +575,70 @@
   },
   {
     "inputs": [],
+    "name": "hideCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "hides",
+    "outputs": [
+      {
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "horns",
+    "outputs": [
+      {
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "hornsCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "isDataURIEnabled",
     "outputs": [
       {
@@ -573,6 +655,38 @@
     "name": "lockParts",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "outfitCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "outfits",
+    "outputs": [
+      {
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -634,6 +748,38 @@
   },
   {
     "inputs": [],
+    "name": "snoutCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "snouts",
+    "outputs": [
+      {
+        "internalType": "bytes",
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "toggleDataURIEnabled",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -655,12 +801,12 @@
           },
           {
             "internalType": "uint48",
-            "name": "body",
+            "name": "hide",
             "type": "uint48"
           },
           {
             "internalType": "uint48",
-            "name": "accessory",
+            "name": "horns",
             "type": "uint48"
           },
           {
@@ -670,7 +816,17 @@
           },
           {
             "internalType": "uint48",
-            "name": "glasses",
+            "name": "outfit",
+            "type": "uint48"
+          },
+          {
+            "internalType": "uint48",
+            "name": "eyes",
+            "type": "uint48"
+          },
+          {
+            "internalType": "uint48",
+            "name": "snout",
             "type": "uint48"
           }
         ],

@@ -17,6 +17,8 @@ const wethContracts: Record<number, string> = {
   [ChainId.Ropsten]: '0xc778417e063141139fce010982780140aa0cd5ab',
   [ChainId.Rinkeby]: '0xc778417e063141139fce010982780140aa0cd5ab',
   [ChainId.Kovan]: '0xd0a1e359811322d97991e03f863a0c30c2cf029c',
+  [ChainId.ArbTest]: '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
+  [ChainId.Arbitrum]: '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
 };
 
 const AUCTION_HOUSE_PROXY_NONCE_OFFSET = 6;
@@ -47,7 +49,7 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
   .addOptionalParam(
     'auctionDuration',
     'The auction duration (seconds)',
-    60 * 60 * 24 /* 24 hours */,
+    60 * 60 * 4 /* 4 hours */,
     types.int,
   )
   .addOptionalParam(
@@ -77,7 +79,7 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
   .addOptionalParam(
     'quorumVotesBps',
     'Votes required for quorum (basis points)',
-    1_000 /* 10% */,
+    2_000 /* 20% */,
     types.int,
   )
   .setAction(async (args, { ethers }) => {

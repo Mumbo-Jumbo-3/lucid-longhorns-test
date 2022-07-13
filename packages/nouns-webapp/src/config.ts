@@ -43,16 +43,16 @@ export const CHAIN_ID: SupportedChains = parseInt(process.env.REACT_APP_CHAIN_ID
 
 export const ETHERSCAN_API_KEY = process.env.REACT_APP_ETHERSCAN_API_KEY ?? '';
 
-const INFURA_PROJECT_ID = process.env.REACT_APP_INFURA_PROJECT_ID;
+const ALCHEMY_PROJECT_ID = process.env.REACT_APP_ALCHEMY_PROJECT_ID;
 
 export const createNetworkHttpUrl = (network: string): string => {
   const custom = process.env[`REACT_APP_${network.toUpperCase()}_JSONRPC`];
-  return custom || `https://${network}.infura.io/v3/${INFURA_PROJECT_ID}`;
+  return custom || `https://arb-rinkeby.g.alchemy.com/v2/${ALCHEMY_PROJECT_ID}`;
 };
 
 export const createNetworkWsUrl = (network: string): string => {
   const custom = process.env[`REACT_APP_${network.toUpperCase()}_WSRPC`];
-  return custom || `wss://${network}.infura.io/ws/v3/${INFURA_PROJECT_ID}`;
+  return custom || `wss://arb-rinkeby.g.alchemy.com/v2/${ALCHEMY_PROJECT_ID}`;
 };
 
 const app: Record<SupportedChains, AppConfig> = {
@@ -66,6 +66,18 @@ const app: Record<SupportedChains, AppConfig> = {
     jsonRpcUri: createNetworkHttpUrl('mainnet'),
     wsRpcUri: createNetworkWsUrl('mainnet'),
     subgraphApiUri: 'https://api.thegraph.com/subgraphs/name/nounsdao/nouns-subgraph',
+    enableHistory: process.env.REACT_APP_ENABLE_HISTORY === 'true',
+  },
+  [ChainId.ArbTest]: {
+    jsonRpcUri: createNetworkHttpUrl('arbTest'),
+    wsRpcUri: createNetworkWsUrl('arbTest'),
+    subgraphApiUri: 'https://api.thegraph.com/subgraphs/name/lucid-longhorns/lucid-longhorns-subgraph-arbitrum-rinkeby',
+    enableHistory: process.env.REACT_APP_ENABLE_HISTORY === 'true',
+  },
+  [ChainId.Arbitrum]: {
+    jsonRpcUri: createNetworkHttpUrl('arbitrum'),
+    wsRpcUri: createNetworkWsUrl('arbitrum'),
+    subgraphApiUri: 'https://api.thegraph.com/subgraphs/name/lucid-longhorns/lucid-longhorns-subgraph-arbitrum',
     enableHistory: process.env.REACT_APP_ENABLE_HISTORY === 'true',
   },
   [ChainId.Hardhat]: {
@@ -82,6 +94,12 @@ const externalAddresses: Record<SupportedChains, ExternalContractAddresses> = {
   },
   [ChainId.Mainnet]: {
     lidoToken: '0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84',
+  },
+  [ChainId.ArbTest]: {
+    lidoToken: undefined,
+  },
+  [ChainId.Arbitrum]: {
+    lidoToken: undefined,
   },
   [ChainId.Hardhat]: {
     lidoToken: undefined,

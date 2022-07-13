@@ -31,26 +31,34 @@ contract NounsSeeder is INounsSeeder {
         );
 
         uint256 backgroundCount = descriptor.backgroundCount();
-        uint256 bodyCount = descriptor.bodyCount();
-        uint256 accessoryCount = descriptor.accessoryCount();
+        uint256 hideCount = descriptor.hideCount();
+        uint256 hornsCount = descriptor.hornsCount();
         uint256 headCount = descriptor.headCount();
-        uint256 glassesCount = descriptor.glassesCount();
+        uint256 outfitCount = descriptor.outfitCount();
+        uint256 eyesCount = descriptor.eyesCount();
+        uint256 snoutCount = descriptor.snoutCount();
 
         return Seed({
             background: uint48(
                 uint48(pseudorandomness) % backgroundCount
             ),
-            body: uint48(
-                uint48(pseudorandomness >> 48) % bodyCount
+            hide: uint48(
+                uint48(pseudorandomness >> 48) % hideCount
             ),
-            accessory: uint48(
-                uint48(pseudorandomness >> 96) % accessoryCount
+            horns: uint48(
+                uint48(pseudorandomness >> 96) % hornsCount
             ),
             head: uint48(
                 uint48(pseudorandomness >> 144) % headCount
             ),
-            glasses: uint48(
-                uint48(pseudorandomness >> 192) % glassesCount
+            outfit: uint48(
+                uint48(pseudorandomness >> 192) % outfitCount
+            ),
+            eyes: uint48(
+                uint48(pseudorandomness >> 240) % eyesCount
+            ),
+            snout: uint48(
+                uint48(pseudorandomness >> 288) % snoutCount
             )
         });
     }

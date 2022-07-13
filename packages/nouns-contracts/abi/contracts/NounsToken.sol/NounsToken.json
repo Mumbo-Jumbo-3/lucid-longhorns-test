@@ -199,12 +199,12 @@
           },
           {
             "internalType": "uint48",
-            "name": "body",
+            "name": "hide",
             "type": "uint48"
           },
           {
             "internalType": "uint48",
-            "name": "accessory",
+            "name": "horns",
             "type": "uint48"
           },
           {
@@ -214,7 +214,17 @@
           },
           {
             "internalType": "uint48",
-            "name": "glasses",
+            "name": "outfit",
+            "type": "uint48"
+          },
+          {
+            "internalType": "uint48",
+            "name": "eyes",
+            "type": "uint48"
+          },
+          {
+            "internalType": "uint48",
+            "name": "snout",
             "type": "uint48"
           }
         ],
@@ -905,12 +915,12 @@
       },
       {
         "internalType": "uint48",
-        "name": "body",
+        "name": "hide",
         "type": "uint48"
       },
       {
         "internalType": "uint48",
-        "name": "accessory",
+        "name": "horns",
         "type": "uint48"
       },
       {
@@ -920,7 +930,17 @@
       },
       {
         "internalType": "uint48",
-        "name": "glasses",
+        "name": "outfit",
+        "type": "uint48"
+      },
+      {
+        "internalType": "uint48",
+        "name": "eyes",
+        "type": "uint48"
+      },
+      {
+        "internalType": "uint48",
+        "name": "snout",
         "type": "uint48"
       }
     ],

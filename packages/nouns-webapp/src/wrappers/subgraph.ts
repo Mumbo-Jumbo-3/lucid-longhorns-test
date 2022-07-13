@@ -46,10 +46,12 @@ export const seedsQuery = (first = 1_000) => gql`
   seeds(first: ${first}) {
     id
     background
-    body
-    accessory
+    hide
     head
-    glasses
+    horns
+    outfit
+    eyes
+    snout
   }
 }
 `;
@@ -97,10 +99,12 @@ export const auctionQuery = (auctionId: number) => gql`
 		seed {
 		  id
 		  background
-		  body
-		  accessory
-		  head
-		  glasses
+		  hide
+      head
+      horns
+		  outfit
+		  eyes
+		  snout
 		}
 		owner {
 		  id
@@ -140,10 +144,12 @@ export const nounQuery = (id: string) => gql`
 	  id
 	  seed {
 	  background
-		body
-		accessory
-		head
-		glasses
+		hide
+    head
+    horns
+		outfit
+		eyes
+		snout
 	}
 	  owner {
 		id
@@ -216,7 +222,7 @@ export const latestBidsQuery = (first: number = 10) => gql`
 		settled
 	  }
 	}
-  }  
+  }
 `;
 
 export const nounVotingHistoryQuery = (nounId: number) => gql`
@@ -251,7 +257,7 @@ export const proposalVotesQuery = (proposalId: string) => gql`
         id
       }
 
-    }	
+    }
   }
 `;
 

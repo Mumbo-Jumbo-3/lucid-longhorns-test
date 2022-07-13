@@ -3,7 +3,7 @@ import { BigNumber, BigNumberish } from '@ethersproject/bignumber';
 import { NounSeed, NounData } from './types';
 import { images, bgcolors } from './image-data.json';
 
-const { bodies, accessories, heads, glasses } = images;
+const { hides, horns, heads, outfits, eyes, snouts } = images;
 
 /**
  * Get encoded part and background information using a Noun seed
@@ -12,10 +12,12 @@ const { bodies, accessories, heads, glasses } = images;
 export const getNounData = (seed: NounSeed): NounData => {
   return {
     parts: [
-      bodies[seed.body],
-      accessories[seed.accessory],
+      hides[seed.hide],
+      horns[seed.horns],
       heads[seed.head],
-      glasses[seed.glasses],
+      outfits[seed.outfit],
+      eyes[seed.eyes],
+      snouts[seed.snout],
     ],
     background: bgcolors[seed.background],
   };
@@ -28,10 +30,12 @@ export const getNounData = (seed: NounSeed): NounData => {
 export const getRandomNounSeed = (): NounSeed => {
   return {
     background: Math.floor(Math.random() * bgcolors.length),
-    body: Math.floor(Math.random() * bodies.length),
-    accessory: Math.floor(Math.random() * accessories.length),
+    hide: Math.floor(Math.random() * hides.length),
+    horns: Math.floor(Math.random() * horns.length),
     head: Math.floor(Math.random() * heads.length),
-    glasses: Math.floor(Math.random() * glasses.length),
+    outfit: Math.floor(Math.random() * outfits.length),
+    eyes: Math.floor(Math.random() * eyes.length),
+    snout: Math.floor(Math.random() * snouts.length),
   };
 };
 
@@ -76,9 +80,11 @@ export const getNounSeedFromBlockHash = (nounId: BigNumberish, blockHash: string
   const pseudorandomness = solidityKeccak256(['bytes32', 'uint256'], [blockHash, nounId]);
   return {
     background: getPseudorandomPart(pseudorandomness, bgcolors.length, 0),
-    body: getPseudorandomPart(pseudorandomness, bodies.length, 48),
-    accessory: getPseudorandomPart(pseudorandomness, accessories.length, 96),
+    hide: getPseudorandomPart(pseudorandomness, hides.length, 48),
+    horns: getPseudorandomPart(pseudorandomness, horns.length, 96),
     head: getPseudorandomPart(pseudorandomness, heads.length, 144),
-    glasses: getPseudorandomPart(pseudorandomness, glasses.length, 192),
+    outfit: getPseudorandomPart(pseudorandomness, outfits.length, 192),
+    eyes: getPseudorandomPart(pseudorandomness, eyes.length, 240),
+    snout: getPseudorandomPart(pseudorandomness, snouts.length, 288),
   };
 };

@@ -14,10 +14,12 @@ export function handleNounCreated(event: NounCreated): void {
 
   let seed = new Seed(nounId);
   seed.background = event.params.seed.background;
-  seed.body = event.params.seed.body;
-  seed.accessory = event.params.seed.accessory;
+  seed.hide = event.params.seed.hide;
+  seed.horns = event.params.seed.horns;
   seed.head = event.params.seed.head;
-  seed.glasses = event.params.seed.glasses;
+  seed.outfit = event.params.seed.outfit;
+  seed.eyes = event.params.seed.eyes;
+  seed.snout = event.params.seed.snout;
   seed.save();
 
   let noun = Noun.load(nounId);

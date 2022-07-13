@@ -46,17 +46,23 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     // Noun Backgrounds (Hex Colors)
     string[] public override backgrounds;
 
-    // Noun Bodies (Custom RLE)
-    bytes[] public override bodies;
+    // Noun Hides (Custom RLE)
+    bytes[] public override hides;
 
-    // Noun Accessories (Custom RLE)
-    bytes[] public override accessories;
+    // Noun Horns (Custom RLE)
+    bytes[] public override horns;
 
     // Noun Heads (Custom RLE)
     bytes[] public override heads;
 
-    // Noun Glasses (Custom RLE)
-    bytes[] public override glasses;
+    // Noun Outfits (Custom RLE)
+    bytes[] public override outfits;
+
+    // Noun Eyes (Custom RLE)
+    bytes[] public override eyes;
+
+    // Noun Snouts (Custom RLE)
+    bytes[] public override snouts;
 
     /**
      * @notice Require that the parts have not been locked.
@@ -74,17 +80,17 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     }
 
     /**
-     * @notice Get the number of available Noun `bodies`.
+     * @notice Get the number of available Noun `hides`.
      */
-    function bodyCount() external view override returns (uint256) {
-        return bodies.length;
+    function hideCount() external view override returns (uint256) {
+        return hides.length;
     }
 
     /**
-     * @notice Get the number of available Noun `accessories`.
+     * @notice Get the number of available Noun `horns`.
      */
-    function accessoryCount() external view override returns (uint256) {
-        return accessories.length;
+    function hornsCount() external view override returns (uint256) {
+        return horns.length;
     }
 
     /**
@@ -95,10 +101,24 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     }
 
     /**
-     * @notice Get the number of available Noun `glasses`.
+     * @notice Get the number of available Noun `outfits`.
      */
-    function glassesCount() external view override returns (uint256) {
-        return glasses.length;
+    function outfitCount() external view override returns (uint256) {
+        return outfits.length;
+    }
+
+    /**
+     * @notice Get the number of available Noun `eyes`.
+     */
+    function eyesCount() external view override returns (uint256) {
+        return eyes.length;
+    }
+
+    /**
+     * @notice Get the number of available Noun `snouts`.
+     */
+    function snoutCount() external view override returns (uint256) {
+        return snouts.length;
     }
 
     /**
@@ -123,22 +143,22 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     }
 
     /**
-     * @notice Batch add Noun bodies.
+     * @notice Batch add Noun hides.
      * @dev This function can only be called by the owner when not locked.
      */
-    function addManyBodies(bytes[] calldata _bodies) external override onlyOwner whenPartsNotLocked {
-        for (uint256 i = 0; i < _bodies.length; i++) {
-            _addBody(_bodies[i]);
+    function addManyHides(bytes[] calldata _hides) external override onlyOwner whenPartsNotLocked {
+        for (uint256 i = 0; i < _hides.length; i++) {
+            _addHide(_hides[i]);
         }
     }
 
     /**
-     * @notice Batch add Noun accessories.
+     * @notice Batch add Noun horns.
      * @dev This function can only be called by the owner when not locked.
      */
-    function addManyAccessories(bytes[] calldata _accessories) external override onlyOwner whenPartsNotLocked {
-        for (uint256 i = 0; i < _accessories.length; i++) {
-            _addAccessory(_accessories[i]);
+    function addManyHorns(bytes[] calldata _horns) external override onlyOwner whenPartsNotLocked {
+        for (uint256 i = 0; i < _horns.length; i++) {
+            _addHorns(_horns[i]);
         }
     }
 
@@ -153,12 +173,32 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     }
 
     /**
-     * @notice Batch add Noun glasses.
+     * @notice Batch add Noun outfits.
      * @dev This function can only be called by the owner when not locked.
      */
-    function addManyGlasses(bytes[] calldata _glasses) external override onlyOwner whenPartsNotLocked {
-        for (uint256 i = 0; i < _glasses.length; i++) {
-            _addGlasses(_glasses[i]);
+    function addManyOutfits(bytes[] calldata _outfits) external override onlyOwner whenPartsNotLocked {
+        for (uint256 i = 0; i < _outfits.length; i++) {
+            _addOutfit(_outfits[i]);
+        }
+    }
+
+    /**
+     * @notice Batch add Noun eyes.
+     * @dev This function can only be called by the owner when not locked.
+     */
+    function addManyEyes(bytes[] calldata _eyes) external override onlyOwner whenPartsNotLocked {
+        for (uint256 i = 0; i < _eyes.length; i++) {
+            _addEyes(_eyes[i]);
+        }
+    }
+
+    /**
+     * @notice Batch add Noun snouts.
+     * @dev This function can only be called by the owner when not locked.
+     */
+    function addManySnouts(bytes[] calldata _snouts) external override onlyOwner whenPartsNotLocked {
+        for (uint256 i = 0; i < _snouts.length; i++) {
+            _addSnout(_snouts[i]);
         }
     }
 
@@ -180,19 +220,19 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     }
 
     /**
-     * @notice Add a Noun body.
+     * @notice Add a Noun hide.
      * @dev This function can only be called by the owner when not locked.
      */
-    function addBody(bytes calldata _body) external override onlyOwner whenPartsNotLocked {
-        _addBody(_body);
+    function addHide(bytes calldata _hide) external override onlyOwner whenPartsNotLocked {
+        _addHide(_hide);
     }
 
     /**
-     * @notice Add a Noun accessory.
+     * @notice Add a Noun horns.
      * @dev This function can only be called by the owner when not locked.
      */
-    function addAccessory(bytes calldata _accessory) external override onlyOwner whenPartsNotLocked {
-        _addAccessory(_accessory);
+    function addHorns(bytes calldata _horns) external override onlyOwner whenPartsNotLocked {
+        _addHorns(_horns);
     }
 
     /**
@@ -204,11 +244,27 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     }
 
     /**
-     * @notice Add Noun glasses.
+     * @notice Add a Noun outfit.
      * @dev This function can only be called by the owner when not locked.
      */
-    function addGlasses(bytes calldata _glasses) external override onlyOwner whenPartsNotLocked {
-        _addGlasses(_glasses);
+    function addOutfit(bytes calldata _outfit) external override onlyOwner whenPartsNotLocked {
+        _addOutfit(_outfit);
+    }
+
+    /**
+     * @notice Add a Noun eyes.
+     * @dev This function can only be called by the owner when not locked.
+     */
+    function addEyes(bytes calldata _eyes) external override onlyOwner whenPartsNotLocked {
+        _addEyes(_eyes);
+    }
+
+    /**
+     * @notice Add Noun snout.
+     * @dev This function can only be called by the owner when not locked.
+     */
+    function addSnout(bytes calldata _snout) external override onlyOwner whenPartsNotLocked {
+        _addSnout(_snout);
     }
 
     /**
@@ -310,17 +366,17 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     }
 
     /**
-     * @notice Add a Noun body.
+     * @notice Add a Noun hide.
      */
-    function _addBody(bytes calldata _body) internal {
-        bodies.push(_body);
+    function _addHide(bytes calldata _hide) internal {
+        hides.push(_hide);
     }
 
     /**
-     * @notice Add a Noun accessory.
+     * @notice Add a Noun horns.
      */
-    function _addAccessory(bytes calldata _accessory) internal {
-        accessories.push(_accessory);
+    function _addHorns(bytes calldata _horns) internal {
+        horns.push(_horns);
     }
 
     /**
@@ -331,10 +387,24 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
     }
 
     /**
-     * @notice Add Noun glasses.
+     * @notice Add a Noun outfit.
      */
-    function _addGlasses(bytes calldata _glasses) internal {
-        glasses.push(_glasses);
+    function _addOutfit(bytes calldata _outfit) internal {
+        outfits.push(_outfit);
+    }
+
+    /**
+     * @notice Add a Noun head.
+     */
+    function _addEyes(bytes calldata _eyes) internal {
+        eyes.push(_eyes);
+    }
+
+    /**
+     * @notice Add Noun snout.
+     */
+    function _addSnout(bytes calldata _snout) internal {
+        snouts.push(_snout);
     }
 
     /**
@@ -342,10 +412,12 @@ contract NounsDescriptor is INounsDescriptor, Ownable {
      */
     function _getPartsForSeed(INounsSeeder.Seed memory seed) internal view returns (bytes[] memory) {
         bytes[] memory _parts = new bytes[](4);
-        _parts[0] = bodies[seed.body];
-        _parts[1] = accessories[seed.accessory];
+        _parts[0] = hides[seed.hide];
+        _parts[1] = horns[seed.horns];
         _parts[2] = heads[seed.head];
-        _parts[3] = glasses[seed.glasses];
+        _parts[3] = outfits[seed.outfit];
+        _parts[4] = eyes[seed.eyes];
+        _parts[5] = snouts[seed.snout];
         return _parts;
     }
 }

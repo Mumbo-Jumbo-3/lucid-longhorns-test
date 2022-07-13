@@ -13,11 +13,13 @@ interface NounToken {
 }
 
 export interface INounSeed {
-  accessory: number;
   background: number;
-  body: number;
-  glasses: number;
+  eyes: number;
   head: number;
+  hide: number;
+  horns: number;
+  outfit: number;
+  snout: number;
 }
 
 export enum NounsTokenContractFunction {
@@ -28,7 +30,7 @@ const abi = new utils.Interface(NounsTokenABI);
 const seedCacheKey = cacheKey(cache.seed, CHAIN_ID, config.addresses.nounsToken);
 
 const isSeedValid = (seed: Record<string, any> | undefined) => {
-  const expectedKeys = ['background', 'body', 'accessory', 'head', 'glasses'];
+  const expectedKeys = ['background', 'hide', 'head', 'horns', 'outfit', 'eyes', 'snout'];
   const hasExpectedKeys = expectedKeys.every(key => (seed || {}).hasOwnProperty(key));
   const hasValidValues = Object.values(seed || {}).some(v => v !== 0);
   return hasExpectedKeys && hasValidValues;
@@ -57,10 +59,12 @@ const seedArrayToObject = (seeds: (INounSeed & { id: string })[]) => {
   return seeds.reduce<Record<string, INounSeed>>((acc, seed) => {
     acc[seed.id] = {
       background: Number(seed.background),
-      body: Number(seed.body),
-      accessory: Number(seed.accessory),
+      hide: Number(seed.hide),
       head: Number(seed.head),
-      glasses: Number(seed.glasses),
+      horns: Number(seed.horns),
+      outfit: Number(seed.outfit),
+      eyes: Number(seed.eyes),
+      snout: Number(seed.snout),
     };
     return acc;
   }, {});
@@ -99,11 +103,13 @@ export const useNounSeed = (nounId: EthersBN) => {
       const updatedSeedCache = JSON.stringify({
         ...JSON.parse(seedCache),
         [nounId.toString()]: {
-          accessory: response.accessory,
           background: response.background,
-          body: response.body,
-          glasses: response.glasses,
+          eyes: response.eyes,
           head: response.head,
+          hide: response.hide,
+          horns: response.horns,
+          outfit: response.outfit,
+          snout: response.snout,
         },
       });
       localStorage.setItem(seedCacheKey, updatedSeedCache);
