@@ -3,8 +3,6 @@ import {
   getContractAddressesForChainOrThrow,
 } from '@nouns/sdk';
 import { ChainId } from '@usedapp/core';
-//import { ArbTest } from './arb-test';
-//import { Arbitrum } from './arbitrum';
 
 interface ExternalContractAddresses {
   lidoToken: string | undefined;
