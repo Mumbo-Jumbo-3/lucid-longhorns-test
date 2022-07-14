@@ -111,7 +111,7 @@ const Documentation = () => {
               <p className={classes.aboutText}>
                 <Trans>
                   The Cattle Royale will act as a self-sufficient Lucid Longhorn generation and
-                  distribution mechanism, auctioning one Lucid Longhorn every 12 hours, forever. 100% of
+                  distribution mechanism, auctioning one Lucid Longhorn every 8 hours, forever. 100% of
                   auction proceeds (ETH) are automatically deposited in the Lucid Co-Op,
                   where they are governed by Lucid Longhorn owners.
                 </Trans>
@@ -292,7 +292,7 @@ const Documentation = () => {
               </p>
               <p>
                 <Trans>
-                  The founder distributions don't interfere with the cadence of 12 hour auctions. Lucid Longhorns
+                  The founder distributions don't interfere with the cadence of 8 hour auctions. Lucid Longhorns
                   are sent directly to the founders, and auctions continue on schedule
                   with the next available Lucid Longhorn ID.
                 </Trans>
