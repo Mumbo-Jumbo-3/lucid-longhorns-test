@@ -17,7 +17,7 @@ const wethContracts: Record<number, string> = {
   [ChainId.Ropsten]: '0xc778417e063141139fce010982780140aa0cd5ab',
   [ChainId.Rinkeby]: '0xc778417e063141139fce010982780140aa0cd5ab',
   [ChainId.Kovan]: '0xd0a1e359811322d97991e03f863a0c30c2cf029c',
-  [ChainId.ArbitrumRinkeby]: '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
+  [ChainId.ArbitrumRinkeby]: '0xEBbc3452Cc911591e4F18f3b36727Df45d6bd1f9',
   [ChainId.Arbitrum]: '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
 };
 
