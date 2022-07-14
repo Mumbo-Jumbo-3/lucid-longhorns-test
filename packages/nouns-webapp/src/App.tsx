@@ -17,7 +17,7 @@ import CreateProposalPage from './pages/CreateProposal';
 import VotePage from './pages/Vote';
 import NoundersPage from './pages/Nounders';
 import NotFoundPage from './pages/NotFound';
-import Playground from './pages/Playground';
+import Corral from './pages/Corral';
 import { CHAIN_ID } from './config';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { AvatarProvider } from '@davatar/react';
@@ -63,7 +63,7 @@ function App() {
             <Route exact path="/create-proposal" component={CreateProposalPage} />
             <Route exact path="/vote" component={GovernancePage} />
             <Route exact path="/vote/:id" component={VotePage} />
-            <Route exact path="/playground" component={Playground} />
+            <Route exact path="/corral" component={Corral} />
             <Route component={NotFoundPage} />
           </Switch>
           <Footer />
