@@ -5,6 +5,10 @@ const getBaseURL = (network: ChainId) => {
   switch (network) {
     case ChainId.Rinkeby:
       return 'https://rinkeby.etherscan.io/';
+    case ChainId.ArbitrumRinkeby:
+      return 'https://testnet.arbiscan.io/';
+    case ChainId.Arbitrum:
+      return 'https://arbiscan.io/';
     default:
       return 'https://etherscan.io/';
   }
