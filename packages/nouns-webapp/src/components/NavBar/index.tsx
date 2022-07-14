@@ -30,9 +30,11 @@ const NavBar = () => {
   const history = useHistory();
   const ethBalance = useEtherBalance(config.addresses.nounsDaoExecutor);
   console.log("Ether Balance: " + ethBalance);
+  /*
   const lidoBalanceAsETH = useLidoBalance();
   console.log("Lido Balance: " + lidoBalanceAsETH);
-  const treasuryBalance = ethBalance && lidoBalanceAsETH && ethBalance.add(lidoBalanceAsETH);
+  */
+  const treasuryBalance = ethBalance// && lidoBalanceAsETH && ethBalance.add(lidoBalanceAsETH);
   console.log("Treasury Balance: " + treasuryBalance)
   const daoEtherscanLink = buildEtherscanHoldingsLink(config.addresses.nounsDaoExecutor);
   const [isNavExpanded, setIsNavExpanded] = useState(false);
