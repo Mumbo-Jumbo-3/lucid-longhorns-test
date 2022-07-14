@@ -28,7 +28,7 @@ const NavBar = () => {
   const stateBgColor = useAppSelector(state => state.application.stateBackgroundColor);
   const isCool = useAppSelector(state => state.application.isCoolBackground);
   const history = useHistory();
-  const ethBalance = useEtherBalance(config.addresses.nounsDaoExecutor, { chainId: CHAIN_ID});
+  const ethBalance = useEtherBalance(config.addresses.nounsDaoExecutor);
   console.log("Ether Balance: " + ethBalance);
   const lidoBalanceAsETH = useLidoBalance();
   console.log("Lido Balance: " + lidoBalanceAsETH);
