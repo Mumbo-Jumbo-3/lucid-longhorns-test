@@ -4,10 +4,6 @@
 }
 
 @media (max-width: 992px) {
-  .wrapper {
-    padding: 2rem;
-  }
-
   .wrapper h1 {
     font-size: 3.75rem;
   }
@@ -15,7 +11,27 @@
 
 @media (min-width: 992px) {
   .wrapper h1 {
-    font-size: 6rem;
+    font-size: 3.75rem;
     margin-left: 2rem;
   }
+}
+
+.centered {
+  position: relative;
+  display: absolute;
+  align-items: center;
+  justify-content: center;
+}
+
+.centerImage {
+  display: flex;
+  justify-content: center; /* horizontally center */
+  align-items: center; /* vertically center */
+  height: auto;
+  width: auto;
+}
+
+.centerImage img {
+  max-width: 100%;
+  max-height: 100%;
 }

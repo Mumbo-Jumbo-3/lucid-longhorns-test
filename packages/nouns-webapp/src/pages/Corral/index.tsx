@@ -9,7 +9,7 @@ import {
   OverlayTrigger,
   Popover,
 } from 'react-bootstrap';
-import classes from './Playground.module.css';
+import classes from './Corral.module.css';
 import React, { ChangeEvent, ReactNode, useEffect, useRef, useState } from 'react';
 import Link from '../../components/Link';
 import { ImageData, getNounData, getRandomNounSeed } from '@nouns/assets';
@@ -62,11 +62,9 @@ const encoder = new PNGCollectionEncoder(ImageData.palette);
 
 const traitKeyToTitle: Record<string, string> = {
   heads: 'head',
-  hides: 'hide',
-  horns: 'horns',
-  outfits: 'outfits',
-  eyes: 'eyes',
-  snouts: 'snouts',
+  glasses: 'glasses',
+  bodies: 'body',
+  accessories: 'accessory',
 };
 
 const parseTraitName = (partName: string): string =>
@@ -77,18 +75,16 @@ const capitalizeFirstLetter = (s: string): string => s.charAt(0).toUpperCase() +
 const traitKeyToLocalizedTraitKeyFirstLetterCapitalized = (s: string): ReactNode => {
   const traitMap = new Map([
     ['background', <Trans>Background</Trans>],
-    ['hide', <Trans>Hide</Trans>],
+    ['body', <Trans>Body</Trans>],
+    ['accessory', <Trans>Accessory</Trans>],
     ['head', <Trans>Head</Trans>],
-    ['horns', <Trans>Horns</Trans>],
-    ['outfit', <Trans>Outfit</Trans>],
-    ['eyes', <Trans>Eyes</Trans>],
-    ['snout', <Trans>Snout</Trans>],
+    ['glasses', <Trans>Glasses</Trans>],
   ]);
 
   return traitMap.get(s);
 };
 
-const Playground: React.FC = () => {
+const Corral: React.FC = () => {
   const [nounSvgs, setNounSvgs] = useState<string[]>();
   const [traits, setTraits] = useState<Trait[]>();
   const [modSeed, setModSeed] = useState<{ [key: string]: number }>();
@@ -117,7 +113,7 @@ const Playground: React.FC = () => {
   );
 
   useEffect(() => {
-    const traitTitles = ['background', 'hide', 'head', 'horns', 'outfit', 'eyes', 'snout'];
+    const traitTitles = ['background', 'body', 'accessory', 'head', 'glasses'];
     const traitNames = [
       ['cool', 'warm'],
       ...Object.values(ImageData.images).map(i => {
@@ -270,11 +266,11 @@ const Playground: React.FC = () => {
               <Trans>Explore</Trans>
             </span>
             <h1>
-              <Trans>Playground</Trans>
+              <Trans>Corral</Trans>
             </h1>
             <p>
               <Trans>
-                The playground was built using the {nounsProtocolLink}. Noun's traits are determined
+                The corral was built using the {nounsProtocolLink}. Noun's traits are determined
                 by the Noun Seed. The seed was generated using {nounsAssetsLink} and rendered using
                 the {nounsSDKLink}.
               </Trans>
@@ -413,4 +409,4 @@ const Playground: React.FC = () => {
     </>
   );
 };
-export default Playground;
+export default Corral;

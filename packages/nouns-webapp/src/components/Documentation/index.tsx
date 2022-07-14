@@ -69,22 +69,22 @@ const Documentation = () => {
                   <Trans>Lucid Longhorns artwork is in the {publicDomainLink}.</Trans>
                 </li>
                 <li>
-                  <Trans>One Lucid Longhorn is auctioned off at the Cattle Royale every 12 hours, forever.</Trans>
+                  <Trans>One Lucid Longhorn is auctioned off in the Cattle Royale every 8 hours, forever.</Trans>
                 </li>
                 <li>
                   <Trans>Settlement of one auction kicks off the next.</Trans>
                 </li>
                 <li>
-                  <Trans>100% of auction proceeds are sent to the Texas Co-Op.</Trans>
+                  <Trans>100% of auction proceeds are sent to the Lucid Co-Op.</Trans>
                 </li>
                 <li>
-                  <Trans>All Lucid Longhorns are members of the Texas Co-Op.</Trans>
+                  <Trans>All Lucid Longhorns are members of the Lucid Co-Op.</Trans>
                 </li>
                 <li>
                   <Trans>One Lucid Longhorn is equal to one vote.</Trans>
                 </li>
                 <li>
-                  <Trans>The Texas Co-Op is controlled exclusively by Lucid Longhorns via governance.</Trans>
+                  <Trans>The Lucid Co-Op is controlled exclusively by Lucid Longhorns via governance.</Trans>
                 </li>
                 <li>
                   <Trans>Artwork is generative and stored directly on-chain.</Trans>
@@ -112,7 +112,7 @@ const Documentation = () => {
                 <Trans>
                   The Cattle Royale will act as a self-sufficient Lucid Longhorn generation and
                   distribution mechanism, auctioning one Lucid Longhorn every 12 hours, forever. 100% of
-                  auction proceeds (ETH) are automatically deposited in the Texas Co-Op,
+                  auction proceeds (ETH) are automatically deposited in the Lucid Co-Op,
                   where they are governed by Lucid Longhorn owners.
                 </Trans>
               </p>
@@ -120,7 +120,7 @@ const Documentation = () => {
               <p className={classes.aboutText}>
                 <Trans>
                   Each time an auction is settled, the settlement transaction will also cause a new
-                  Lucid Longhorn to be minted and a new 12 hour auction to begin.{' '}
+                  Lucid Longhorn to be minted and a new 8 hour auction to begin.{' '}
                 </Trans>
               </p>
               <p>
@@ -134,13 +134,13 @@ const Documentation = () => {
           </Accordion.Item>
           <Accordion.Item eventKey="2" className={classes.accordionItem}>
             <Accordion.Header className={classes.accordionHeader}>
-              <Trans>Texas Co-Op</Trans>
+              <Trans>Lucid Co-Op</Trans>
             </Accordion.Header>
             <Accordion.Body>
               <Trans>
-                The Texas Co-Op utilizes a fork of {compoundGovLink} and is the main governing body of the
-                Lucid Longhorns ecosystem. The Texas Co-Op treasury receives 100% of ETH proceeds from daily
-                Lucid Longhorn auctions. Each Lucid Longhorn is an irrevocable member of the Texas Co-Op and entitled to one
+                The Lucid Co-Op utilizes a fork of {compoundGovLink} and is the main governing body of the
+                Lucid Longhorns ecosystem. The Lucid Co-Op treasury receives 100% of ETH proceeds from daily
+                Lucid Longhorn auctions. Each Lucid Longhorn is an irrevocable member of the Lucid Co-Op and entitled to one
                 vote in all governance matters. Lucid Longhorn votes are non-transferable (if you sell your
                 Lucid Longhorn the vote goes with it) but delegatable, which means you can assign your vote to
                 someone else as long as you own your Lucid Longhorn.
@@ -244,7 +244,7 @@ const Documentation = () => {
                 <Trans>
                   The Lucid Longhorn Seeder contract is used to determine Lucid Longhorn traits during the minting
                   process. The seeder contract can be replaced to allow for future trait generation
-                  algorithm upgrades. Additionally, it can be locked by the Texas Co-Op to prevent any
+                  algorithm upgrades. Additionally, it can be locked by the Lucid Co-Op to prevent any
                   future updates. Currently, Lucid Longhorn traits are determined using pseudo-random number
                   generation:
                 </Trans>
@@ -284,7 +284,7 @@ const Documentation = () => {
               </ul>
               <p>
                 <Trans>
-                  Because 100% of Lucid Longhorn auction proceeds are sent to the Texas Co-Op, the founders have chosen
+                  Because 100% of Lucid Longhorn auction proceeds are sent to the Lucid Co-Op, the founders have chosen
                   to compensate themselves with Lucid Longhorns. Every 10th Lucid Longhorn for the first 4 years of the
                   project (Lucid Longhorn ids #0, #10, #20, #30 and so on) will be automatically sent to one
                   of the founders on an alternating basis.

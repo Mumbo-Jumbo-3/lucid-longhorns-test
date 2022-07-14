@@ -58,9 +58,9 @@ const NavBar = () => {
         <Container style={{ maxWidth: 'unset' }}>
           <div className={classes.brandAndTreasuryWrapper}>
             <Navbar.Brand as={Link} to="/" className={classes.navBarBrand}>
-              <img src={logo} className={classes.navBarLogo} alt="Nouns DAO logo" />
+              <img src={logo} className={classes.navBarLogo} alt="Co-Op logo" />
             </Navbar.Brand>
-            {Number(CHAIN_ID) !== 1 && (
+            {Number(CHAIN_ID) !== 42161 && (
               <Nav.Item>
                 <img className={classes.testnetImg} src={testnetNoun} alt="testnet noun" />
                 TESTNET
@@ -90,7 +90,7 @@ const NavBar = () => {
           <Navbar.Collapse className="justify-content-end">
             <Nav.Link as={Link} to="/vote" className={classes.nounsNavLink} onClick={closeNav}>
               <NavBarButton
-                buttonText={<Trans>DAO</Trans>}
+                buttonText={<Trans>Co-Op</Trans>}
                 buttonIcon={<FontAwesomeIcon icon={faUsers} />}
                 buttonStyle={nonWalletButtonStyle}
               />
@@ -116,19 +116,19 @@ const NavBar = () => {
               onClick={closeNav}
             >
               <NavBarButton
-                buttonText={<Trans>Discourse</Trans>}
+                buttonText={<Trans>Forum</Trans>}
                 buttonIcon={<FontAwesomeIcon icon={faComments} />}
                 buttonStyle={nonWalletButtonStyle}
               />
             </Nav.Link>
             <Nav.Link
               as={Link}
-              to="/playground"
+              to="/corral"
               className={classes.nounsNavLink}
               onClick={closeNav}
             >
               <NavBarButton
-                buttonText={<Trans>Playground</Trans>}
+                buttonText={<Trans>Corral</Trans>}
                 buttonIcon={<FontAwesomeIcon icon={faPlay} />}
                 buttonStyle={nonWalletButtonStyle}
               />
