@@ -1,5 +1,5 @@
 {
-  "network": "arbTest",
+  "network": "arbitrum-rinkeby",
   "nounsToken": {
     "address": "0x00A0c8a7c08834F14E660843A30d832A522F4A5d",
     "startBlock": 13302812

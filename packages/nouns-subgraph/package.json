@@ -15,12 +15,12 @@
     "deploy": "graph deploy --debug --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/",
     "prepare:rinkeby": "mustache config/rinkeby.json subgraph.yaml.mustache > subgraph.yaml",
     "prepare:mainnet": "mustache config/mainnet.json subgraph.yaml.mustache > subgraph.yaml",
-    "prepare:arbTest": "mustache config/arbTest.json subgraph.yaml.mustache > subgraph.yaml",
+    "prepare:arbitrum-rinkeby": "mustache config/arbitrum-rinkeby.json subgraph.yaml.mustache > subgraph.yaml",
     "prepare:arbitrum": "mustache config/arbitrum.json subgraph.yaml.mustache > subgraph.yaml",
     "deploy:rinkeby": "yarn clean && yarn prepare:rinkeby && yarn codegen && yarn deploy nounsdao/nouns-subgraph-rinkeby",
     "deploy:mainnet": "yarn clean && yarn prepare:mainnet && yarn codegen && yarn deploy nounsdao/nouns-subgraph",
-    "deploy:arbTest": "yarn clean && yarn prepare:arbTest && yarn codegen && yarn deploy lucid-longhorns/lucid-longhorns-subgraph-arbitrum-rinkeby",
-    "deploy:arbTest": "yarn clean && yarn prepare:arbTest && yarn codegen && yarn deploy lucid-longhorns/lucid-longhorns-subgraph-arbitrum",
+    "deploy:arbitrum-rinkeby": "yarn clean && yarn prepare:arbitrum-rinkeby && yarn codegen && yarn deploy mumbo-jumbo-3/lucid-longhorns-t",
+    "deploy:arbitrum": "yarn clean && yarn prepare:arbitrum-rinkeby && yarn codegen && yarn deploy lucid-longhorns/lucid-longhorns-subgraph-arbitrum",
     "mustache": "mustache"
   },
   "devDependencies": {

@@ -71,7 +71,7 @@ const app: Record<SupportedChains, AppConfig> = {
   [ChainId.ArbitrumRinkeby]: {
     jsonRpcUri: createNetworkHttpUrl('arbTest'),
     wsRpcUri: createNetworkWsUrl('arbTest'),
-    subgraphApiUri: 'https://api.thegraph.com/subgraphs/name/lucid-longhorns/lucid-longhorns-subgraph-arbitrum-rinkeby',
+    subgraphApiUri: 'https://api.thegraph.com/subgraphs/name/mumbo-jumbo-3/lucid-longhorns-t',
     enableHistory: process.env.REACT_APP_ENABLE_HISTORY === 'true',
   },
   [ChainId.Arbitrum]: {
