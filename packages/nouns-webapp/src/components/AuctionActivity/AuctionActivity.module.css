@@ -13,7 +13,9 @@
 }
 
 h1 {
-  font-size: 3rem;
+  font-family: 'Londrina Solid';
+  font-size: 5rem;
+  margin-bottom: 10px;
 }
 
 h2 {

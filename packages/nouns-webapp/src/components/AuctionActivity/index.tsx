@@ -96,6 +96,7 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
       <AuctionActivityWrapper>
         <div className={classes.informationRow}>
           <Row className={classes.activityRow}>
+            <h1>Cattle Royale</h1>
             <AuctionTitleAndNavWrapper>
               {displayGraphDepComps && (
                 <AuctionNavigation
