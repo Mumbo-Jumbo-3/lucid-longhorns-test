@@ -276,7 +276,7 @@ const Documentation = () => {
                   Texas Blockchain
                 </li>
                 <li>
-                  yoroqui (artist)
+                  _______ (artist)
                 </li>
                 <li>
                   HairyBarry (developer)

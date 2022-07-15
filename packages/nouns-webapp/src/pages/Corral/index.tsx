@@ -61,10 +61,12 @@ const DEFAULT_TRAIT_TYPE = 'heads';
 const encoder = new PNGCollectionEncoder(ImageData.palette);
 
 const traitKeyToTitle: Record<string, string> = {
+  hides: 'hide',
+  horns: 'horns',
   heads: 'head',
-  glasses: 'glasses',
-  bodies: 'body',
-  accessories: 'accessory',
+  outfits: 'outfit',
+  eyes: 'eyes',
+  snouts: 'snout',
 };
 
 const parseTraitName = (partName: string): string =>
@@ -75,10 +77,12 @@ const capitalizeFirstLetter = (s: string): string => s.charAt(0).toUpperCase() +
 const traitKeyToLocalizedTraitKeyFirstLetterCapitalized = (s: string): ReactNode => {
   const traitMap = new Map([
     ['background', <Trans>Background</Trans>],
-    ['body', <Trans>Body</Trans>],
-    ['accessory', <Trans>Accessory</Trans>],
+    ['hide', <Trans>Hide</Trans>],
+    ['horns', <Trans>Horns</Trans>],
     ['head', <Trans>Head</Trans>],
-    ['glasses', <Trans>Glasses</Trans>],
+    ['outfit', <Trans>Outfit</Trans>],
+    ['eyes', <Trans>Eyes</Trans>],
+    ['snout', <Trans>Snout</Trans>],
   ]);
 
   return traitMap.get(s);
@@ -113,7 +117,7 @@ const Corral: React.FC = () => {
   );
 
   useEffect(() => {
-    const traitTitles = ['background', 'body', 'accessory', 'head', 'glasses'];
+    const traitTitles = ['background', 'hide', 'horns', 'head', 'outfit', 'eyes', 'snout'];
     const traitNames = [
       ['cool', 'warm'],
       ...Object.values(ImageData.images).map(i => {
