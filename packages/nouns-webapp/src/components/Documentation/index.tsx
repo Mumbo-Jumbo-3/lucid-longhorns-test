@@ -96,7 +96,7 @@ const Documentation = () => {
                 </li>
                 <li>
                   <Trans>
-                    Founders receive rewards in the form of Lucid Longhorns (10% of supply for first 4 years).
+                    Founders receive rewards in the form of Lucid Longhorns (10% of supply for first 5 years).
                   </Trans>
                 </li>
               </ul>
@@ -285,7 +285,7 @@ const Documentation = () => {
               <p>
                 <Trans>
                   Because 100% of Lucid Longhorn auction proceeds are sent to the Lucid Co-Op, the founders have chosen
-                  to compensate themselves with Lucid Longhorns. Every 10th Lucid Longhorn for the first 4 years of the
+                  to compensate themselves with Lucid Longhorns. Every 10th Lucid Longhorn for the first 5 years of the
                   project (Lucid Longhorn ids #0, #10, #20, #30 and so on) will be automatically sent to one
                   of the founders on an alternating basis.
                 </Trans>
