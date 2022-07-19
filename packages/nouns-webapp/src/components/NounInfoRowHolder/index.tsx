@@ -22,11 +22,7 @@ const NounInfoRowHolder: React.FC<NounInfoRowHolderProps> = props => {
   const isCool = useAppSelector(state => state.application.isCoolBackground);
   const { loading, error, data } = useQuery(auctionQuery(nounId));
 
-  if (data && data.auction.bidder) {
-    const winner = data.auction.bidder.id;
-  } else {
-    const winner = null;
-  }
+  const winner = data && data.auction.bidder;
 
   if (loading || !winner) {
     return (
@@ -44,8 +40,8 @@ const NounInfoRowHolder: React.FC<NounInfoRowHolderProps> = props => {
     );
   }
 
-  const etherscanURL = buildEtherscanAddressLink(winner);
-  const shortAddressComponent = <ShortAddress address={winner} />;
+  const etherscanURL = buildEtherscanAddressLink(winner.id);
+  const shortAddressComponent = <ShortAddress address={winner.id} />;
 
   return (
     <div className={classes.nounHolderInfoContainer}>
@@ -64,7 +60,7 @@ const NounInfoRowHolder: React.FC<NounInfoRowHolderProps> = props => {
           target={'_blank'}
           rel="noreferrer"
         >
-          {winner.toLowerCase() === config.addresses.nounsAuctionHouseProxy.toLowerCase() ? (
+          {winner.id.toLowerCase() === config.addresses.nounsAuctionHouseProxy.toLowerCase() ? (
             <Trans>Nouns Auction House</Trans>
           ) : (
             shortAddressComponent
