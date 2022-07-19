@@ -22,7 +22,11 @@ const NounInfoRowHolder: React.FC<NounInfoRowHolderProps> = props => {
   const isCool = useAppSelector(state => state.application.isCoolBackground);
   const { loading, error, data } = useQuery(auctionQuery(nounId));
 
-  const winner = data && data.auction.bidder.id;
+  if (data && data.auction.bidder) {
+    const winner = data.auction.bidder.id;
+  } else {
+    const winner = null;
+  }
 
   if (loading || !winner) {
     return (
