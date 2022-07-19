@@ -47,8 +47,8 @@ export const seedsQuery = (first = 1_000) => gql`
     id
     background
     hide
-    head
     horns
+    head
     outfit
     eyes
     snout
@@ -100,8 +100,8 @@ export const auctionQuery = (auctionId: number) => gql`
 		  id
 		  background
 		  hide
-      head
       horns
+      head
 		  outfit
 		  eyes
 		  snout
@@ -145,8 +145,8 @@ export const nounQuery = (id: string) => gql`
 	  seed {
 	  background
 		hide
-    head
     horns
+    head
 		outfit
 		eyes
 		snout
