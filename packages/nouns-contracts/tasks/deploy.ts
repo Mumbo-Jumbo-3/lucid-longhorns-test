@@ -17,12 +17,13 @@ const wethContracts: Record<number, string> = {
   [ChainId.Ropsten]: '0xc778417e063141139fce010982780140aa0cd5ab',
   [ChainId.Rinkeby]: '0xc778417e063141139fce010982780140aa0cd5ab',
   [ChainId.Kovan]: '0xd0a1e359811322d97991e03f863a0c30c2cf029c',
-  [ChainId.ArbitrumRinkeby]: '0xEBbc3452Cc911591e4F18f3b36727Df45d6bd1f9',
   [ChainId.Arbitrum]: '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
+  [ChainId.ArbitrumRinkeby]: '0xEBbc3452Cc911591e4F18f3b36727Df45d6bd1f9',
 };
 
-const AUCTION_HOUSE_PROXY_NONCE_OFFSET = 6;
-const GOVERNOR_N_DELEGATOR_NONCE_OFFSET = 9;
+const NOUNS_ART_NONCE_OFFSET = 4;
+const AUCTION_HOUSE_PROXY_NONCE_OFFSET = 9;
+const GOVERNOR_N_DELEGATOR_NONCE_OFFSET = 12;
 
 task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsToken')
   .addFlag('autoDeploy', 'Deploy all contracts without user interaction')
@@ -31,7 +32,7 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
   .addOptionalParam(
     'auctionTimeBuffer',
     'The auction time buffer (seconds)',
-    5 * 60 /* 5 minutes */,
+    2 * 60 /* 2 minutes */,
     types.int,
   )
   .addOptionalParam(
@@ -49,7 +50,7 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
   .addOptionalParam(
     'auctionDuration',
     'The auction duration (seconds)',
-    60 * 60 * 4 /* 4 hours */,
+    60 * 60 * 1 /* 1 hour */,
     types.int,
   )
   .addOptionalParam(
@@ -61,13 +62,13 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
   .addOptionalParam(
     'votingPeriod',
     'The voting period (blocks)',
-    Math.round(4 * 60 * 24 * (60 / 13)) /* 4 days (13s blocks) */,
+    Math.round(1 * 60 * 24 * (60 / 2)) /* 1 days (2s blocks) */,
     types.int,
   )
   .addOptionalParam(
     'votingDelay',
-    'The voting delay (blocks)',
-    Math.round(3 * 60 * 24 * (60 / 13)) /* 3 days (13s blocks) */,
+    'The voting delay (blocks))',
+    Math.round(1 * 60 * 24 * (60 / 2)) /* 1 days (2s blocks) */,
     types.int,
   )
   .addOptionalParam(
@@ -79,7 +80,7 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
   .addOptionalParam(
     'quorumVotesBps',
     'Votes required for quorum (basis points)',
-    2_000 /* 20% */,
+    1_000 /* 10% */,
     types.int,
   )
   .setAction(async (args, { ethers }) => {
@@ -106,6 +107,10 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
     }
 
     const nonce = await deployer.getTransactionCount();
+    const expectedNounsArtAddress = ethers.utils.getContractAddress({
+      from: deployer.address,
+      nonce: nonce + NOUNS_ART_NONCE_OFFSET,
+    });
     const expectedAuctionHouseProxyAddress = ethers.utils.getContractAddress({
       from: deployer.address,
       nonce: nonce + AUCTION_HOUSE_PROXY_NONCE_OFFSET,
@@ -119,18 +124,24 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
       DeployedContract
     >;
     const contracts: Record<ContractName, ContractDeployment> = {
-      NFTDescriptor: {},
-      NounsDescriptor: {
+      NFTDescriptorV2: {},
+      SVGRenderer: {},
+      NounsDescriptorV2: {
+        args: [expectedNounsArtAddress, () => deployment.SVGRenderer.address],
         libraries: () => ({
-          NFTDescriptor: deployment.NFTDescriptor.address,
+          NFTDescriptorV2: deployment.NFTDescriptorV2.address,
         }),
+      },
+      Inflator: {},
+      NounsArt: {
+        args: [() => deployment.NounsDescriptorV2.address, () => deployment.Inflator.address],
       },
       NounsSeeder: {},
       NounsToken: {
         args: [
           args.noundersdao,
           expectedAuctionHouseProxyAddress,
-          () => deployment.NounsDescriptor.address,
+          () => deployment.NounsDescriptorV2.address,
           () => deployment.NounsSeeder.address,
           proxyRegistryAddress,
         ],
@@ -220,7 +231,6 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
       const factory = await ethers.getContractFactory(name, {
         libraries: contract?.libraries?.(),
       });
-
       const deploymentGas = await factory.signer.estimateGas(
         factory.getDeployTransaction(
           ...(contract.args?.map(a => (typeof a === 'function' ? a() : a)) ?? []),

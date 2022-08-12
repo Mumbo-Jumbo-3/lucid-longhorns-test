@@ -3,7 +3,7 @@ import { HardhatUserConfig } from 'hardhat/config';
 import dotenv from 'dotenv';
 import '@nomiclabs/hardhat-waffle';
 import '@nomiclabs/hardhat-etherscan';
-import '@float-capital/solidity-coverage';
+import 'solidity-coverage';
 import '@typechain/hardhat';
 import 'hardhat-abi-exporter';
 import '@openzeppelin/hardhat-upgrades';
@@ -14,7 +14,7 @@ dotenv.config();
 
 const config: HardhatUserConfig = {
   solidity: {
-    version: '0.8.6',
+    version: '0.8.15',
     settings: {
       optimizer: {
         enabled: true,
@@ -33,14 +33,14 @@ const config: HardhatUserConfig = {
         ? { mnemonic: process.env.MNEMONIC }
         : [process.env.WALLET_PRIVATE_KEY!].filter(Boolean),
     },
-    arbTest: {
-      url: `https://arb-rinkeby.g.alchemy.com/v2/${process.env.ALCHEMY_PROJECT_ID}`,
+    mumbai: {
+      url: `https://polygon-mumbai.g.alchemy.com/v2/${process.env.ALCHEMY_PROJECT_ID}`,
       accounts: process.env.MNEMONIC
         ? { mnemonic: process.env.MNEMONIC }
         : [process.env.WALLET_PRIVATE_KEY!].filter(Boolean),
     },
-    arbitrum: {
-      url: `https://arbitrum-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_PROJECT_ID}`,
+    polygon: {
+      url: `https://polygon-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_PROJECT_ID}`,
       accounts: process.env.MNEMONIC
         ? { mnemonic: process.env.MNEMONIC }
         : [process.env.WALLET_PRIVATE_KEY!].filter(Boolean),

@@ -84,6 +84,8 @@ const supportedChainURLs = {
   [ChainId.Rinkeby]: createNetworkHttpUrl('rinkeby'),
   [ChainId.ArbitrumRinkeby]: createNetworkHttpUrl('arbTest'),
   [ChainId.Arbitrum]: createNetworkHttpUrl('arbitrum'),
+  [ChainId.PolygonMumbai]: createNetworkHttpUrl('polygon-mumbai'),
+  [ChainId.Polygon]: createNetworkHttpUrl('polygon'),
   [ChainId.Hardhat]: 'http://localhost:8545',
 };
 
@@ -105,7 +107,7 @@ const Updaters = () => {
   );
 };
 
-const BLOCKS_PER_DAY = 36_000;
+const BLOCKS_PER_DAY = 43_200;
 
 const ChainSubscriber: React.FC = () => {
   const dispatch = useAppDispatch();

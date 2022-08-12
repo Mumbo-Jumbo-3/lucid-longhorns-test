@@ -17,10 +17,12 @@
     "prepare:mainnet": "mustache config/mainnet.json subgraph.yaml.mustache > subgraph.yaml",
     "prepare:arbitrum-rinkeby": "mustache config/arbitrum-rinkeby.json subgraph.yaml.mustache > subgraph.yaml",
     "prepare:arbitrum": "mustache config/arbitrum.json subgraph.yaml.mustache > subgraph.yaml",
+    "prepare:polygon-mumbai": "mustache config/polygon-mumbai.json subgraph.yaml.mustache > subgraph.yaml",
     "deploy:rinkeby": "yarn clean && yarn prepare:rinkeby && yarn codegen && yarn deploy nounsdao/nouns-subgraph-rinkeby",
     "deploy:mainnet": "yarn clean && yarn prepare:mainnet && yarn codegen && yarn deploy nounsdao/nouns-subgraph",
     "deploy:arbitrum-rinkeby": "yarn clean && yarn prepare:arbitrum-rinkeby && yarn codegen && yarn deploy mumbo-jumbo-3/lucid-longhorns-t",
-    "deploy:arbitrum": "yarn clean && yarn prepare:arbitrum-rinkeby && yarn codegen && yarn deploy lucid-longhorns/lucid-longhorns-subgraph-arbitrum",
+    "deploy:arbitrum": "yarn clean && yarn prepare:arbitrum && yarn codegen && yarn deploy lucid-longhorns/lucid-longhorns-subgraph-arbitrum",
+    "deploy:polygon-mumbai": "yarn clean && yarn prepare:polygon-mumbai && yarn codegen && yarn deploy mumbo-jumbo-3/lucid-longhorns-t",
     "mustache": "mustache"
   },
   "devDependencies": {

@@ -30,7 +30,7 @@ const abi = new utils.Interface(NounsTokenABI);
 const seedCacheKey = cacheKey(cache.seed, CHAIN_ID, config.addresses.nounsToken);
 
 const isSeedValid = (seed: Record<string, any> | undefined) => {
-  const expectedKeys = ['background', 'hide', 'head', 'horns', 'outfit', 'eyes', 'snout'];
+  const expectedKeys = ['background', 'hide', 'horns', 'head', 'outfit', 'eyes', 'snout'];
   const hasExpectedKeys = expectedKeys.every(key => (seed || {}).hasOwnProperty(key));
   const hasValidValues = Object.values(seed || {}).some(v => v !== 0);
   return hasExpectedKeys && hasValidValues;
@@ -60,8 +60,8 @@ const seedArrayToObject = (seeds: (INounSeed & { id: string })[]) => {
     acc[seed.id] = {
       background: Number(seed.background),
       hide: Number(seed.hide),
-      head: Number(seed.head),
       horns: Number(seed.horns),
+      head: Number(seed.head),
       outfit: Number(seed.outfit),
       eyes: Number(seed.eyes),
       snout: Number(seed.snout),
@@ -176,6 +176,19 @@ export const useNounTokenBalance = (address: string): number | undefined => {
       address: config.addresses.nounsToken,
       method: 'balanceOf',
       args: [address],
+    }) || [];
+  return tokenBalance?.toNumber();
+};
+
+export const useUserNounTokenBalance = (): number | undefined => {
+  const { account } = useEthers();
+
+  const [tokenBalance] =
+    useContractCall<[EthersBN]>({
+      abi,
+      address: config.addresses.nounsToken,
+      method: 'balanceOf',
+      args: [account],
     }) || [];
   return tokenBalance?.toNumber();
 };

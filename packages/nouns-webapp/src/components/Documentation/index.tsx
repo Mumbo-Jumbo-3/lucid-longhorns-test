@@ -154,11 +154,13 @@ const Documentation = () => {
             <Accordion.Body>
               <p>
                 <Trans>
-                  In addition to the precautions taken by Compound Governance, the founders have given
-                  themselves a special veto right to ensure that no malicious proposals can be
-                  passed while the Lucid Longhorn supply is low. This veto right will only be used if an
-                  obviously harmful governance proposal has been passed, and is intended as a last
-                  resort.
+                  The proposal veto right was initially envisioned as a temporary solution to the
+                  problem of ‘51% attacks’ on the Nouns DAO treasury. While Nounders initially
+                  believed that a healthy distribution of Nouns would be sufficient protection for
+                  the DAO, a more complete understanding of the incentives and risks has led to
+                  general consensus within the Nounders, the Nouns Foundation, and the wider
+                  community that a more robust game-theoretic solution should be implemented before
+                  the right is removed.
                 </Trans>
               </p>
               <p>

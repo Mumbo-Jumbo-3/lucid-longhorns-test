@@ -1,6 +1,6 @@
 import { task, types } from 'hardhat/config';
-import ImageData from '../files/image-data.json';
-import { chunkArray } from '../utils';
+import ImageData from '../files/image-data-v2.json';
+import { dataToDescriptorInput } from './utils';
 
 task('populate-descriptor', 'Populates the descriptor with color palettes and Noun parts')
   .addOptionalParam(
@@ -15,10 +15,12 @@ task('populate-descriptor', 'Populates the descriptor with color palettes and No
     '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
     types.string,
   )
-  .setAction(async ({ nftDescriptor, nounsDescriptor }, { ethers }) => {
-    const descriptorFactory = await ethers.getContractFactory('NounsDescriptor', {
+  .setAction(async ({ nftDescriptor, nounsDescriptor }, { ethers, network }) => {
+    const options = { gasLimit: network.name === 'hardhat' ? 30000000 : undefined };
+
+    const descriptorFactory = await ethers.getContractFactory('NounsDescriptorV2', {
       libraries: {
-        NFTDescriptor: nftDescriptor,
+        NFTDescriptorV2: nftDescriptor,
       },
     });
     const descriptorContract = descriptorFactory.attach(nounsDescriptor);
@@ -26,15 +28,52 @@ task('populate-descriptor', 'Populates the descriptor with color palettes and No
     const { bgcolors, palette, images } = ImageData;
     const { hides, horns, heads, outfits, eyes, snouts } = images;
 
-    // Chunk head and accessory population due to high gas usage
+    const hidesPage = dataToDescriptorInput(hides.map(({ data }) => data));
+    const hornsPage = dataToDescriptorInput(horns.map(({ data }) => data));
+    const headsPage = dataToDescriptorInput(heads.map(({ data }) => data));
+    const outfitsPage = dataToDescriptorInput(outfits.map(({ data }) => data));
+    const eyesPage = dataToDescriptorInput(eyes.map(({ data }) => data));
+    const snoutsPage = dataToDescriptorInput(snouts.map(({ data }) => data));
+
     await descriptorContract.addManyBackgrounds(bgcolors);
-    await descriptorContract.addManyColorsToPalette(0, palette);
-    await descriptorContract.addManyHides(hides.map(({ data }) => data));
-    await descriptorContract.addManyHorns(horns.map(({ data }) => data));
-    await descriptorContract.addManyHeads(heads.map(({ data }) => data));
-    await descriptorContract.addManyOutfits(outfits.map(({ data }) => data));
-    await descriptorContract.addManyEyes(eyes.map(({ data }) => data));
-    await descriptorContract.addManySnouts(snouts.map(({ data }) => data));
+    await descriptorContract.setPalette(0, `0x000000${palette.join('')}`);
+
+    await descriptorContract.addHides(
+      hidesPage.encodedCompressed,
+      hidesPage.originalLength,
+      hidesPage.itemCount,
+      options,
+    );
+    await descriptorContract.addHorns(
+      hornsPage.encodedCompressed,
+      hornsPage.originalLength,
+      hornsPage.itemCount,
+      options,
+    );
+    await descriptorContract.addHeads(
+      headsPage.encodedCompressed,
+      headsPage.originalLength,
+      headsPage.itemCount,
+      options,
+    );
+    await descriptorContract.addOutfits(
+      outfitsPage.encodedCompressed,
+      outfitsPage.originalLength,
+      outfitsPage.itemCount,
+      options,
+    );
+    await descriptorContract.addEyes(
+      eyesPage.encodedCompressed,
+      eyesPage.originalLength,
+      eyesPage.itemCount,
+      options,
+    );
+    await descriptorContract.addSnouts(
+      snoutsPage.encodedCompressed,
+      snoutsPage.originalLength,
+      snoutsPage.itemCount,
+      options,
+    );
 
     console.log('Descriptor populated with palettes and parts.');
   });

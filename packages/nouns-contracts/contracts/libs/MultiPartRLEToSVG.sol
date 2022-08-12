@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 
 /// @title A library used to convert multi-part RLE compressed images to SVG
+/// @dev Used in NFTDescriptor.sol. V2 uses SVGRenderer.sol.
 
 /*********************************
  * ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ *
@@ -70,11 +71,11 @@ library MultiPartRLEToSVG {
         returns (string memory svg)
     {
         string[33] memory lookup = [
-            '0', '10', '20', '30', '40', '50', '60', '70', 
-            '80', '90', '100', '110', '120', '130', '140', '150', 
-            '160', '170', '180', '190', '200', '210', '220', '230', 
+            '0', '10', '20', '30', '40', '50', '60', '70',
+            '80', '90', '100', '110', '120', '130', '140', '150',
+            '160', '170', '180', '190', '200', '210', '220', '230',
             '240', '250', '260', '270', '280', '290', '300', '310',
-            '320' 
+            '320'
         ];
         string memory rects;
         for (uint8 p = 0; p < params.parts.length; p++) {
